@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './App.css';
-
+import { FaChevronDown } from 'react-icons/fa';
 import Img1 from './images/img1.jpg'
 import Img2 from './images/img2.jpg'
 import Img3 from './images/img3.jpg'
@@ -12,6 +12,8 @@ import Img8 from './images/img8.jpg'
 import Img9 from './images/img9.jpg'
 import Img11 from './images/img11.jpg'
 import Img12 from './images/img12.jpg'
+import Img13 from './images/img13.jpg'
+
 
 
 
@@ -61,6 +63,10 @@ const Gallery = () => {
       id : 11,
       imgSrc : Img12
       },
+      {
+        id : 12,
+        imgSrc : Img13
+        },
 
 ]
 const [model,setModel] = useState(false);
@@ -76,7 +82,8 @@ setModel(true);
     <>
     <div className={model? "model open " : "model"} >
       <img src={tempimgSrc} alt="aa"/>
-      
+      <FaChevronDown onClick={()=> setModel(false)}/>
+
 
     </div>
 
@@ -85,7 +92,7 @@ setModel(true);
     {data.map((item, index)=> {
       return(
         <div className="pics" key={index} onClick={() => getImg(item.imgSrc)}>
-          <img className="img" src={item.imgSrc}/>
+          <img className="img" src={item.imgSrc} alt="random"/>
 
           </div>
     )
